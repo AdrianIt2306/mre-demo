@@ -8,25 +8,27 @@
    job listings on green-bar paper, logs), narration and a map of the stack on the right.
    Narrow screens stack them. Terminal "tubes" keep device colors in both themes. */
 :root {
-  --bg: #e8ecef;
-  --panel: #f8fafb;
-  --ink: #16202a;
-  --muted: #55626e;
-  --line: #c7d0d8;
-  --accent: #0a6a75;
-  --accent-soft: #d2e8ea;
-  --amber: #93560a;
-  --amber-soft: #f6e6c9;
-  --ok: #22713a;
-  --ok-soft: #d7ecd9;
-  --bad: #a82a22;
-  --bad-soft: #f5d9d6;
-  --paper: #fbfcf6;
+  --bg: #f4f4f4;
+  --panel: #ffffff;
+  --ink: #161616;
+  --muted: #525252;
+  --line: #c6c6c6;
+  --accent: #0f62fe;
+  --accent-fill: #0f62fe;
+  --on-accent: #ffffff;
+  --accent-soft: #d0e2ff;
+  --amber: #8e6a00;
+  --amber-soft: #fcf4d6;
+  --ok: #198038;
+  --ok-soft: #defbe6;
+  --bad: #da1e28;
+  --bad-soft: #fff1f1;
+  --paper: #ffffff;
   --band: #e2efdc;
-  --paper-ink: #1d2a1f;
-  --hole: #d4dbd2;
+  --paper-ink: #161616;
+  --hole: #e0e0e0;
   --tube: #090c0a;
-  --tube-edge: #262b28;
+  --tube-edge: #262626;
   --oia: #86cf98;
   --t-green: #5ae38c;
   --t-blue: #73b8ff;
@@ -41,20 +43,22 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1419; --panel: #161d24; --ink: #e2e8ed; --muted: #97a4b0; --line: #29343e;
-    --accent: #45bcc6; --accent-soft: #15383c; --amber: #e2a447; --amber-soft: #3a2c14;
-    --ok: #63c47f; --ok-soft: #173321; --bad: #f0736a; --bad-soft: #3b1a18;
-    --paper: #171f19; --band: #1d2a21; --paper-ink: #d6e4d8; --hole: #0f1419;
-    --tube-edge: #343b37;
+    --bg: #161616; --panel: #262626; --ink: #f4f4f4; --muted: #a8a8a8; --line: #393939;
+    --accent: #4589ff; --accent-fill: #0f62fe; --on-accent: #ffffff; --accent-soft: #1c2d4f;
+    --amber: #f1c21b; --amber-soft: #3d3517;
+    --ok: #42be65; --ok-soft: #1e3424; --bad: #fa4d56; --bad-soft: #3f2022;
+    --paper: #1e1e1e; --band: #232923; --paper-ink: #e0e0e0; --hole: #161616;
+    --tube-edge: #393939;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1419; --panel: #161d24; --ink: #e2e8ed; --muted: #97a4b0; --line: #29343e;
-  --accent: #45bcc6; --accent-soft: #15383c; --amber: #e2a447; --amber-soft: #3a2c14;
-  --ok: #63c47f; --ok-soft: #173321; --bad: #f0736a; --bad-soft: #3b1a18;
-  --paper: #171f19; --band: #1d2a21; --paper-ink: #d6e4d8; --hole: #0f1419;
-  --tube-edge: #343b37;
+  --bg: #161616; --panel: #262626; --ink: #f4f4f4; --muted: #a8a8a8; --line: #393939;
+  --accent: #4589ff; --accent-fill: #0f62fe; --on-accent: #ffffff; --accent-soft: #1c2d4f;
+    --amber: #f1c21b; --amber-soft: #3d3517;
+  --ok: #42be65; --ok-soft: #1e3424; --bad: #fa4d56; --bad-soft: #3f2022;
+  --paper: #1e1e1e; --band: #232923; --paper-ink: #e0e0e0; --hole: #161616;
+  --tube-edge: #393939;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -95,7 +99,7 @@ button { font: inherit; color: inherit; }
 .pbtn { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); cursor: pointer; }
 .pbtn:hover { border-color: var(--accent); }
 .pbtn svg { width: 18px; height: 18px; fill: currentColor; }
-.pbtn.main { width: auto; padding-inline: 16px 18px; gap: 8px; grid-auto-flow: column; background: var(--accent); color: var(--panel); border-color: var(--accent); font-weight: 600; }
+.pbtn.main { width: auto; padding-inline: 16px 18px; gap: 8px; grid-auto-flow: column; background: var(--accent-fill); color: var(--on-accent); border-color: var(--accent-fill); font-weight: 600; }
 .pbtn.main svg { fill: var(--panel); }
 .progress { flex: 1 1 160px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; min-width: 120px; }
 .progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s ease; }
@@ -247,11 +251,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-fam
 .legal a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .mark { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 3px;
-        background: var(--accent); color: var(--bg); }
+        background: var(--accent-fill); color: var(--on-accent); }
 .mark svg { width: 22px; height: 22px; }
 .brand-text { display: grid; gap: 3px; min-width: 0; }
 .wordmark { margin: 0; font-family: var(--f-display); font-weight: 600; font-size: 19px; line-height: 1;
             letter-spacing: 0.08em; color: var(--ink); }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 </style>
 
 <div class="wrap">
@@ -265,8 +270,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-fam
         <button data-lang="es" aria-pressed="true" lang="es">Español</button><button data-lang="en" aria-pressed="false" lang="en">English</button>
       </div>
     </div>
-    <h1 id="h1">MRE en acción</h1>
-    <p class="lede" id="lede"></p>
+    <h1 id="h1" class="sr-only">MRE en acción</h1>
   </header>
 
   <div class="console">
@@ -330,8 +334,8 @@ const DEMO = {"recorded":"2026-10-10","machine":"Laptop i5-10300H (4 núcleos, 8
     if (saved === "es" || saved === "en") lang = saved;
     else lang = /^es\b/i.test(navigator.language || "") ? "es" : "en";
   } catch (e) { lang = /^es\b/i.test(navigator.language || "") ? "es" : "en"; }
-  const hashLang = /^#(es|en)\b/.exec(location.hash || "") || /^#(scene)-\d+$/.exec(location.hash || "");
-  if (hashLang) lang = hashLang[1] === "scene" ? "en" : hashLang[1];
+  const hashLang = /^#(es|en)\b/.exec(location.hash || "") || /^#(scenario|scene)-\d+$/.exec(location.hash || "");
+  if (hashLang) lang = hashLang[1].startsWith("scen") ? "en" : hashLang[1];
   // #video-es / #video-en: no controls to click, plays once from the start (for a screen recording).
   const videoMode = /^#video-(es|en)$/.exec(location.hash || "");
   if (videoMode) { lang = videoMode[1]; document.documentElement.classList.add("video"); }
@@ -574,8 +578,8 @@ const DEMO = {"recorded":"2026-10-10","machine":"Laptop i5-10300H (4 núcleos, 8
           return { term };
         },
         beats: [
-          { narr: t(`MRE corre en contenedores: la API, la consola web, mre-broker (Valkey, la cola de jobs), un worker batch que hace de LPAR1, la región transaccional (compatible con EXEC CICS) y dos bases Postgres, una de MRE y otra de la aplicación. Todo lo que verás se grabó en esta pila, levantada en una laptop el ${recordedText}.`,
-                    `MRE runs in containers: the API, the web console, mre-broker (Valkey, the job queue), a batch worker that plays LPAR1, the transaction region (compatible with EXEC CICS) and two Postgres databases, one for MRE and one for the application. Everything you will see was recorded on this stack, running on a laptop on ${recordedText}.`),
+          { narr: t(`MRE corre en contenedores: la API, la consola web, mre-broker (Valkey, la cola de jobs), un worker batch que hace de LPAR1, la región transaccional (compatible con EXEC CICS) y dos bases Postgres, una de MRE y otra de la aplicación. Todo lo que verás sale de esta pila, levantada en una laptop el ${recordedText}.`,
+                    `MRE runs in containers: the API, the web console, mre-broker (Valkey, the job queue), a batch worker that plays LPAR1, the transaction region (compatible with EXEC CICS) and two Postgres databases, one for MRE and one for the application. Everything you will see comes from this stack, running on a laptop on ${recordedText}.`),
             arch: ["term", "web", "jcl", "api", "queue", "worker", "tn", "r1", "r2", "r3", "dbmre", "dbapp", "store"], hold: 4800,
             render(ctx) { ctx.term.replaceChildren(prompt()); },
             async anim(ctx) { this.render(ctx); } },
@@ -915,16 +919,14 @@ const DEMO = {"recorded":"2026-10-10","machine":"Laptop i5-10300H (4 núcleos, 8
     document.documentElement.lang = lang;
     document.title = t("MRE en acción", "MRE in action");
     $("#h1").textContent = t("MRE en acción", "MRE in action");
-    $("#eyebrow").textContent = t(`Mainframe Runtime Engine · grabado el ${info.recordedText}`, `Mainframe Runtime Engine · recorded on ${info.recordedText}`);
-    $("#lede").textContent = t("Siete escenas de una pila MRE corriendo en una laptop. Cada pantalla 3270, captura de la consola web, línea de log, job y tiempo que ves aquí se grabó de la pila real; nada está simulado.",
-                               "Seven scenes from an MRE stack running on a laptop. Every 3270 screen, web console screenshot, log line, job and timing you see here was recorded from the real stack; nothing is simulated.");
+    $("#eyebrow").textContent = "Mainframe Runtime Engine";
     $("#legal").innerHTML = t('<p><strong>MRE es un proyecto educativo independiente</strong> (licencia MIT). No está afiliado a IBM, a Amazon Web Services ni a ningún otro fabricante, ni cuenta con su patrocinio o aprobación.</p><p>IBM, CICS, Db2, RACF y z/OS son marcas de International Business Machines Corporation, registradas en muchas jurisdicciones. AWS es una marca de Amazon.com, Inc. o sus afiliadas. Los demás nombres de productos y servicios pueden ser marcas de sus respectivos dueños. Aquí se mencionan solo para describir compatibilidad.</p><p>CardDemo © Amazon.com, Inc. o sus afiliadas, bajo licencia Apache 2.0 (<a href="https://github.com/aws-samples/aws-mainframe-modernization-carddemo" target="_blank" rel="noopener">aws-samples/aws-mainframe-modernization-carddemo</a>). Se usa sin modificar: las pantallas y los listados de CardDemo que aparecen aquí salen de su código.</p><p>El ícono del logo de MRE es «cpu», de Lucide (licencia ISC).</p>', '<p><strong>MRE is an independent educational project</strong> (MIT license). It is not affiliated with, sponsored or endorsed by IBM, Amazon Web Services or any other vendor.</p><p>IBM, CICS, Db2, RACF and z/OS are trademarks of International Business Machines Corporation, registered in many jurisdictions worldwide. AWS is a trademark of Amazon.com, Inc. or its affiliates. Other product and service names may be trademarks of their respective owners. They are mentioned here only to describe compatibility.</p><p>CardDemo © Amazon.com, Inc. or its affiliates, licensed under Apache 2.0 (<a href="https://github.com/aws-samples/aws-mainframe-modernization-carddemo" target="_blank" rel="noopener">aws-samples/aws-mainframe-modernization-carddemo</a>). It is used unmodified: the CardDemo screens and listings shown here come from its code.</p><p>The MRE logo uses the “cpu” icon from Lucide (ISC license).</p>');
-    $("#rail").setAttribute("aria-label", t("Escenas", "Scenes"));
+    $("#rail").setAttribute("aria-label", t("Escenarios", "Scenarios"));
     $("#player").setAttribute("aria-label", t("Reproducción", "Playback"));
     $("#speed").setAttribute("aria-label", t("Velocidad", "Speed"));
     $("#lang-group").setAttribute("aria-label", t("Idioma", "Language"));
-    const tips = { "b-prev-scene": t("Escena anterior", "Previous scene"), "b-prev": t("Paso anterior (←)", "Previous step (←)"),
-                   "b-next": t("Paso siguiente (→)", "Next step (→)"), "b-next-scene": t("Escena siguiente", "Next scene") };
+    const tips = { "b-prev-scene": t("Escenario anterior", "Previous scenario"), "b-prev": t("Paso anterior (←)", "Previous step (←)"),
+                   "b-next": t("Paso siguiente (→)", "Next step (→)"), "b-next-scene": t("Escenario siguiente", "Next scenario") };
     for (const [id, text] of Object.entries(tips)) { const b = $("#" + id); b.title = text; b.setAttribute("aria-label", text.replace(/ \(.\)$/, "")); }
     document.querySelectorAll("#lang-group button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     setPlaying(playing);
@@ -951,7 +953,7 @@ const DEMO = {"recorded":"2026-10-10","machine":"Laptop i5-10300H (4 núcleos, 8
     $("#scene-title").textContent = S[si].title;
     $("#kicker").textContent = `${String(si + 1).padStart(2, "0")} · ${S[si].kicker}`;
     $("#narr").textContent = b.narr;
-    $("#narr-label").textContent = t(`Escena ${si + 1} de ${S.length} · paso ${bi + 1} de ${S[si].beats.length}`, `Scene ${si + 1} of ${S.length} · step ${bi + 1} of ${S[si].beats.length}`);
+    $("#narr-label").textContent = t(`Escenario ${si + 1} de ${S.length} · paso ${bi + 1} de ${S[si].beats.length}`, `Scenario ${si + 1} of ${S.length} · step ${bi + 1} of ${S[si].beats.length}`);
     $("#stepcount").textContent = `${cur + 1}/${beats.length}`;
     $("#bar").style.width = `${((cur + 1) / beats.length) * 100}%`;
     list.querySelectorAll("button").forEach((btn) => {
@@ -964,7 +966,7 @@ const DEMO = {"recorded":"2026-10-10","machine":"Laptop i5-10300H (4 núcleos, 8
     if (active && rail.scrollWidth > rail.clientWidth + 4) {
       rail.scrollTo({ left: Math.max(0, active.parentElement.offsetLeft - 8), behavior: reduced ? "auto" : "smooth" });
     }
-    try { history.replaceState(null, "", `#${t("escena", "scene")}-${si + 1}`); } catch (e) { /* the frame may refuse it */ }
+    try { history.replaceState(null, "", `#${t("escenario", "scenario")}-${si + 1}`); } catch (e) { /* the frame may refuse it */ }
   }
   function setPlaying(p) {
     playing = p;
@@ -1032,7 +1034,7 @@ const DEMO = {"recorded":"2026-10-10","machine":"Laptop i5-10300H (4 núcleos, 8
   });
 
   build();
-  const m = /^#(?:escena|scene)-(\d+)$/.exec(location.hash || "");
+  const m = /^#(?:escenario|scenario|escena|scene)-(\d+)$/.exec(location.hash || "");
   const startScene = m ? Math.min(S.length, Math.max(1, Number(m[1]))) - 1 : 0;
   go(startScene ? firstBeat(startScene) : 0, false);
   if (videoMode) {
